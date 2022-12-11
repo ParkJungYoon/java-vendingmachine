@@ -60,19 +60,17 @@ public class OutputView {
     }
 
     private static int calculateChange(Map<Coin, Integer> coins, Coin coin) {
-        int change = VendingMachineRepository.getAmountOfInput(); //500
+        int change = VendingMachineRepository.getAmountOfInput();
 
-        if (coins.get(coin) != 0 && change / coin.getAmount() != 0) {
-            int count = coins.get(coin);
-            if (count * coin.getAmount() <= change) {
-                change -= count * coin.getAmount();
-                return count;
-            }
-            if (count * coin.getAmount() > change) {
-                count = change / coin.getAmount();
-                change -= count * coin.getAmount();
-                return count;
-            }
+        int count = coins.get(coin);
+        if (count * coin.getAmount() <= change) {
+            change -= count * coin.getAmount();
+            return count;
+        }
+        if (count * coin.getAmount() > change) {
+            count = change / coin.getAmount();
+            change -= count * coin.getAmount();
+            return count;
         }
         return 0;
     }
