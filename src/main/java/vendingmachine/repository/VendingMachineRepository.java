@@ -42,10 +42,6 @@ public class VendingMachineRepository {
         return vendingMachine.keySet().contains(name);
     }
 
-    public static Map<String, List<Integer>> getVendingMachine() {
-        return vendingMachine;
-    }
-
     public static int getAmountOfInput() {
         return AmountOfInput;
     }
