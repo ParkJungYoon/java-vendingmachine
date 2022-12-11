@@ -47,6 +47,7 @@ public class OutputView {
         System.out.println(PURCHASE_PRODUCT_NAME);
     }
 
+    // 리팩토링 필요함
     public static void printChangeResult() {
         System.out.println(CHANGE);
         Map<Coin, Integer> coins = CoinRepository.getCoins();
