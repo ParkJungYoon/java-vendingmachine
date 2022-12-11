@@ -11,4 +11,8 @@ public class OutputView {
     public static void printTotalCoins() {
         System.out.println(TOTAL_AMOUNT_COINS);
     }
+
+    public static void printErrorMessage(String e) {
+        System.out.println(e);
+    }
 }
