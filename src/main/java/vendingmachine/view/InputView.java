@@ -17,7 +17,10 @@ public class InputView {
 
     public static String readNamePriceQuantity() {
         OutputView.printProductRegistrationMessage();
-        return Console.readLine();
+        String namePriceQuantity = Console.readLine();
+
+        validateProduct(namePriceQuantity);
+        return namePriceQuantity;
     }
 
     public static int readAmountOfInput() {
