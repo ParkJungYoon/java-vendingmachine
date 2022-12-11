@@ -51,11 +51,15 @@ public class InputValidator {
             validateProductFormat(product);
             List<String> transformProduct = transformFormat(product);
             validateSize(transformProduct);
-            validateNonNumeric(transformProduct.get(1));
+            validateProductPrice(transformProduct.get(1));
             validateNonNumeric(transformProduct.get(2));
-            validatePriceRange(Integer.parseInt(transformProduct.get(1)));
-            validateUnit(Integer.parseInt(transformProduct.get(1)));
         }
+    }
+
+    private static void validateProductPrice(String input) {
+        validateNonNumeric(input);
+        validatePriceRange(Integer.parseInt(input));
+        validateUnit(Integer.parseInt(input));
     }
 
     private static void validateSize(List<String> input) {
@@ -65,11 +69,7 @@ public class InputValidator {
     }
 
     private static void validateProductFormat(String input) {
-//        String pattern = "^[ + ]$";
-//        if (!Pattern.matches(pattern, input)) {
-//            throw new IllegalArgumentException(INVALID_FORMAT_ERROR_MESSAGE);
-//        }
-        if (!input.startsWith("[") && !input.endsWith("]")) {
+        if (!input.startsWith("[") || !input.endsWith("]")) {
             throw new IllegalArgumentException(INVALID_FORMAT_ERROR_MESSAGE);
         }
     }
