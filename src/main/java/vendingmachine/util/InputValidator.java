@@ -3,7 +3,6 @@ package vendingmachine.util;
 import vendingmachine.repository.VendingMachineRepository;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 import static vendingmachine.util.TransformInput.transformFormat;
 
