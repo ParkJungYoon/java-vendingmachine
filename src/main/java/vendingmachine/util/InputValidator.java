@@ -55,6 +55,7 @@ public class InputValidator {
             validateNonNumeric(transformProduct.get(1));
             validateNonNumeric(transformProduct.get(2));
             validatePriceRange(Integer.parseInt(transformProduct.get(1)));
+            validateUnit(Integer.parseInt(transformProduct.get(1)));
         }
     }
 
