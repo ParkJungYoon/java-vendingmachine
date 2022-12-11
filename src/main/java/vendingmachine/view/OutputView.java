@@ -61,18 +61,14 @@ public class OutputView {
 
     private static int calculateChange(Map<Coin, Integer> coins, Coin coin) {
         int change = VendingMachineRepository.getAmountOfInput();
-
         int count = coins.get(coin);
         if (count * coin.getAmount() <= change) {
             change -= count * coin.getAmount();
             return count;
         }
-        if (count * coin.getAmount() > change) {
-            count = change / coin.getAmount();
-            change -= count * coin.getAmount();
-            return count;
-        }
-        return 0;
+        count = change / coin.getAmount();
+        change -= count * coin.getAmount();
+        return count;
     }
 
     public static void printErrorMessage(String e) {
