@@ -30,12 +30,10 @@ public class VendingMachineController {
             if (!VendingMachineRepository.isPossibleToBuy()) break;
 
             String productName = repeat(InputView::readPurchaseProductName);
-            // 재고가 없고 잔돈이 가장 싼 제품보다 적으면
             if (!VendingMachineRepository.haveStock(productName) || !VendingMachineRepository.isPossibleToBuy()) {
                 break;
             }
-            // 재고가 있고 돈되면 구매
-            if (VendingMachineRepository.isPossibleToBuyByName(productName) && VendingMachineRepository.haveStock(productName)) {
+            if (VendingMachineRepository.isPossibleToBuyByName(productName)) {
                 VendingMachineRepository.purchase(productName);
             }
         }
