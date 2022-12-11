@@ -10,7 +10,7 @@ import vendingmachine.view.OutputView;
 
 import java.util.function.Supplier;
 
-import static vendingmachine.Util.TransformInput.transformFormat;
+import static vendingmachine.util.TransformInput.transformFormat;
 
 public class VendingMachineController {
     public void run() {

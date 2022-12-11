@@ -1,4 +1,4 @@
-package vendingmachine.Util;
+package vendingmachine.util;
 
 import vendingmachine.repository.VendingMachineRepository;
 

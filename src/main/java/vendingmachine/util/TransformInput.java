@@ -1,6 +1,5 @@
-package vendingmachine.Util;
+package vendingmachine.util;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

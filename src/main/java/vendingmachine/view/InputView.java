@@ -2,7 +2,7 @@ package vendingmachine.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import static vendingmachine.Util.InputValidator.*;
+import static vendingmachine.util.InputValidator.*;
 
 public class InputView {
     public static int readTotalAmount() {
