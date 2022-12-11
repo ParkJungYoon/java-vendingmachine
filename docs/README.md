@@ -47,4 +47,36 @@
 [ERROR] 금액은 숫자여야 합니다.
 ```
 
-### ✔ 관리할 객체
+###  📚 폴더 구조
+
+```
+├─main
+│  └─java
+│      └─vendingmachine
+│          │  Application.java
+│          │
+│          ├─controller
+│          │      VendingMachineController.java
+│          │
+│          ├─domain
+│          │      Coin.java
+│          │      GenerateCoins.java
+│          │      GenerateCoinsImpl.java
+│          │
+│          ├─repository
+│          │      CoinRepository.java
+│          │      VendingMachineRepository.java
+│          │
+│          ├─util
+│          │      InputValidator.java
+│          │      TransformInput.java
+│          │
+│          └─view
+│                  InputView.java
+│                  OutputView.java
+│
+└─test
+    └─java
+        └─vendingmachine
+                ApplicationTest.java
+```
