@@ -19,4 +19,21 @@ public class InputView {
         OutputView.printProductRegistrationMessage();
         return Console.readLine();
     }
+
+    public static int readAmountOfInput() {
+        OutputView.printAmountInputMessage();
+        String amount = Console.readLine();
+
+        validateNonNumeric(amount);
+        validateUnit(Integer.parseInt(amount));
+        validateAmountRange(Integer.parseInt(amount));
+        return Integer.parseInt(amount);
+    }
+
+    public static String readPurchaseProductName() {
+        OutputView.printInputPurchaseProductName();
+        String name = Console.readLine();
+
+        return name;
+    }
 }

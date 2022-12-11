@@ -21,4 +21,8 @@ public class CoinRepository {
     public static Map<Coin, Integer> getCoins() {
         return coins;
     }
+
+//    public static Map<Coin, Integer> getHaveCoins() {
+//
+//    }
 }

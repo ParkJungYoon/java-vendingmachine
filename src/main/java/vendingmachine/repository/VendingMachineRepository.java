@@ -1,13 +1,9 @@
 package vendingmachine.repository;
 
-import vendingmachine.domain.Coin;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class VendingMachineRepository {
+    private static int AmountOfInput = 0;
     private static final Map<String, List<Integer>> vendingMachine = new HashMap<>();
 
     public static void productRegistration(List<String> namePriceQuantity) {
@@ -16,8 +12,38 @@ public class VendingMachineRepository {
         vendingMachine.put(name, priceQuantity);
     }
 
+    public static void setAmountOfInput(int coin) {
+        AmountOfInput = coin;
+    }
+
+    public static void purchase(String name) {
+        vendingMachine.put(name, Arrays.asList(vendingMachine.get(name).get(0), vendingMachine.get(name).get(1) - 1));
+        AmountOfInput -= vendingMachine.get(name).get(0);
+    }
+
+    public static boolean isPossibleToBuyByName(String name) {
+        return AmountOfInput >= vendingMachine.get(name).get(0);
+    }
+
+    public static boolean isPossibleToBuy() {
+        List<Integer> price = new ArrayList<>();
+        Collection<List<Integer>> values = vendingMachine.values();
+        for (List<Integer> value : values) {
+            price.add(value.get(0));
+        }
+        return AmountOfInput >= Collections.min(price);
+    }
+
+    public static boolean haveStock(String name) {
+        return vendingMachine.get(name).get(1) >= 1;
+    }
+
     public static Map<String, List<Integer>> getVendingMachine() {
         return vendingMachine;
+    }
+
+    public static int getAmountOfInput() {
+        return AmountOfInput;
     }
 
 }
