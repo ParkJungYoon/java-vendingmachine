@@ -49,25 +49,32 @@ public class OutputView {
 
     public static void printChangeResult() {
         System.out.println(CHANGE);
-        int change = VendingMachineRepository.getAmountOfInput(); //500
         Map<Coin, Integer> coins = CoinRepository.getCoins();
 
-        for (Coin coin : coins.keySet()) {
-            if (coins.get(coin) != 0 && change / coin.getAmount() != 0) {
-                int count = coins.get(coin);
-                if (count * coin.getAmount() <= change) {
-                    change -= count * coin.getAmount();
-                    System.out.println(String.format(CHANGE_FORMAT, coin.getAmount(), count));
-                    continue;
-                }
-                if (count * coin.getAmount() > change) {
-                    count = change / coin.getAmount();
-                    change -= count * coin.getAmount();
-                    System.out.println(String.format(CHANGE_FORMAT, coin.getAmount(), count));
-                }
+        for (Coin coin : Coin.values()) {
+            if (coins.get(coin) != 0) {
+                int count = calculateChange(coins, coin);
+                System.out.println(String.format(CHANGE_FORMAT, coin.getAmount(), count));
             }
         }
+    }
 
+    private static int calculateChange(Map<Coin, Integer> coins, Coin coin) {
+        int change = VendingMachineRepository.getAmountOfInput(); //500
+
+        if (coins.get(coin) != 0 && change / coin.getAmount() != 0) {
+            int count = coins.get(coin);
+            if (count * coin.getAmount() <= change) {
+                change -= count * coin.getAmount();
+                return count;
+            }
+            if (count * coin.getAmount() > change) {
+                count = change / coin.getAmount();
+                change -= count * coin.getAmount();
+                return count;
+            }
+        }
+        return 0;
     }
 
     public static void printErrorMessage(String e) {
