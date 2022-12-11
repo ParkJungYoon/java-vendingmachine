@@ -15,16 +15,10 @@ import static vendingmachine.Util.TransformInput.transformFormat;
 public class VendingMachineController {
     public void run() {
         coinSetUp(initAmount());
-        System.out.println(CoinRepository.getCoins());
         OutputView.printTotalCoins();
         initNamePriceQuantity();
-        System.out.println(VendingMachineRepository.getVendingMachine());
 
         purchaseProduct();
-        changeResult();
-    }
-
-    private void changeResult() {
         OutputView.printChangeResult();
     }
 
