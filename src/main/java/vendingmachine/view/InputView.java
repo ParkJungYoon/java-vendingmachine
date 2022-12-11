@@ -34,6 +34,7 @@ public class InputView {
         OutputView.printInputPurchaseProductName();
         String name = Console.readLine();
 
+        validateExistProduct(name);
         return name;
     }
 }

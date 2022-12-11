@@ -38,6 +38,10 @@ public class VendingMachineRepository {
         return vendingMachine.get(name).get(1) >= 1;
     }
 
+    public static boolean isExistProduct(String name) {
+        return vendingMachine.keySet().contains(name);
+    }
+
     public static Map<String, List<Integer>> getVendingMachine() {
         return vendingMachine;
     }
@@ -45,5 +49,4 @@ public class VendingMachineRepository {
     public static int getAmountOfInput() {
         return AmountOfInput;
     }
-
 }

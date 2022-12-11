@@ -1,5 +1,7 @@
 package vendingmachine.Util;
 
+import vendingmachine.repository.VendingMachineRepository;
+
 import java.util.regex.Pattern;
 
 public class InputValidator {
@@ -9,6 +11,7 @@ public class InputValidator {
     private final static String NON_NUMERIC_ERROR_MESSAGE = "[ERROR] 숫자로만 이루어진 값을 입력해주세요.";
     private final static String AMOUNT_RANGE_ERROR_MESSAGE = "[ERROR] 10이상 숫자를 입력해주세요.";
     private final static String INVALID_FORMAT_ERROR_MESSAGE = "[ERROR] 올바른 형식의 값이 아닙니다.";
+    private final static String NON_EXIST_PRODUCT_ERROR_MESSAGE = "[ERROR] 존재하지 않는 상품입니다.";
 
     public static void validateNonNumeric(String input) {
         try {
@@ -42,6 +45,12 @@ public class InputValidator {
         String pattern = "[ + ]$";
         if (!Pattern.matches(pattern, input)) {
             throw new IllegalArgumentException(INVALID_FORMAT_ERROR_MESSAGE);
+        }
+    }
+
+    public static void validateExistProduct(String input) {
+        if (!VendingMachineRepository.isExistProduct(input)) {
+            throw new IllegalArgumentException(NON_EXIST_PRODUCT_ERROR_MESSAGE);
         }
     }
 }
