@@ -44,6 +44,8 @@ public class InputValidator {
             validateProductFormat(product);
             List<String> transformProduct = transformFormat(product);
             validateSize(transformProduct);
+            validateNonNumeric(transformProduct.get(1));
+            validateNonNumeric(transformProduct.get(2));
         }
     }
 
