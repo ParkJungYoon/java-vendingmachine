@@ -29,13 +29,17 @@ public class VendingMachineController {
             OutputView.printRemainingAmount(VendingMachineRepository.getAmountOfInput());
             if (!VendingMachineRepository.isPossibleToBuy()) break;
 
-            String productName = repeat(InputView::readPurchaseProductName);
-            if (!VendingMachineRepository.haveStock(productName) || !VendingMachineRepository.isPossibleToBuy()) {
-                break;
-            }
-            if (VendingMachineRepository.isPossibleToBuyByName(productName)) {
-                VendingMachineRepository.purchase(productName);
-            }
+            purchaseOneProduct();
+        }
+    }
+
+    private void purchaseOneProduct() {
+        String productName = repeat(InputView::readPurchaseProductName);
+        if (!VendingMachineRepository.haveStock(productName) || !VendingMachineRepository.isPossibleToBuy()) {
+            return;
+        }
+        if (VendingMachineRepository.isPossibleToBuyByName(productName)) {
+            VendingMachineRepository.purchase(productName);
         }
     }
 
