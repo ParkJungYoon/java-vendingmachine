@@ -54,22 +54,10 @@ public class OutputView {
 
         for (Coin coin : Coin.values()) {
             if (coins.get(coin) != 0) {
-                int count = calculateChange(coins, coin);
+                int count = CoinRepository.calculateChange(coin);
                 System.out.println(String.format(CHANGE_FORMAT, coin.getAmount(), count));
             }
         }
-    }
-
-    private static int calculateChange(Map<Coin, Integer> coins, Coin coin) {
-        int change = VendingMachineRepository.getAmountOfInput();
-        int count = coins.get(coin);
-        if (count * coin.getAmount() <= change) {
-            change -= count * coin.getAmount();
-            return count;
-        }
-        count = change / coin.getAmount();
-        change -= count * coin.getAmount();
-        return count;
     }
 
     public static void printErrorMessage(String e) {

@@ -18,6 +18,18 @@ public class CoinRepository {
         coins.put(coin, coins.get(coin) + 1);
     }
 
+    public static int calculateChange(Coin coin) {
+        int change = VendingMachineRepository.getAmountOfInput();
+        int count = coins.get(coin);
+        if (count * coin.getAmount() <= change) {
+            change -= count * coin.getAmount();
+            return count;
+        }
+        count = change / coin.getAmount();
+        change -= count * coin.getAmount();
+        return count;
+    }
+
     public static Map<Coin, Integer> getCoins() {
         return coins;
     }

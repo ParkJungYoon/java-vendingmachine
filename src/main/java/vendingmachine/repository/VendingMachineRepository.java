@@ -1,5 +1,7 @@
 package vendingmachine.repository;
 
+import vendingmachine.domain.Coin;
+
 import java.util.*;
 
 public class VendingMachineRepository {
