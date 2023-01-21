@@ -8,6 +8,9 @@ public class VendingMachineRepository {
     private static int AmountOfInput = 0;
     private static final Map<String, List<Integer>> vendingMachine = new HashMap<>();
 
+    private VendingMachineRepository() {
+    }
+
     public static void productRegistration(List<String> namePriceQuantity) {
         String name = namePriceQuantity.get(0);
         List<Integer> priceQuantity = Arrays.asList(Integer.parseInt(namePriceQuantity.get(1)), Integer.parseInt(namePriceQuantity.get(2)));

@@ -14,6 +14,9 @@ public class CoinRepository {
         }
     }
 
+    private CoinRepository() {
+    }
+
     public static void addCoin(Coin coin) {
         coins.put(coin, coins.get(coin) + 1);
     }
