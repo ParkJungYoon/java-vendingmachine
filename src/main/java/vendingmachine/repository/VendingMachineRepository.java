@@ -8,6 +8,7 @@ public class VendingMachineRepository {
     private static int AmountOfInput = 0;
     private static final Map<String, List<Integer>> vendingMachine = new HashMap<>();
 
+    // 싱글톤 객체의 외부 생성을 막기 위해 private 기본 생성자 코드
     private VendingMachineRepository() {
     }
 
